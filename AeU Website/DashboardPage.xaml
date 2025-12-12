@@ -1,0 +1,198 @@
+﻿<Window x:Class="EduPlus.DashboardPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dashboard - EduPlus" Height="900" Width="1400"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        FontFamily="pack://application:,,,/Fonts/#Poppins">
+
+    <Window.Resources>
+        <FontFamily x:Key="PoppinsFont">pack://application:,,,/Fonts/#Poppins</FontFamily>
+        <FontFamily x:Key="MontserratFont">pack://application:,,,/Fonts/#Montserrat</FontFamily>
+
+        <SolidColorBrush x:Key="PrimaryColor" Color="#32625A"/>
+        <SolidColorBrush x:Key="DarkColor" Color="#1E484A"/>
+        <SolidColorBrush x:Key="LightBackground" Color="#E8E8E8"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR -->
+        <Border Grid.Column="0" Background="{StaticResource PrimaryColor}">
+            <StackPanel>
+                <!-- Logo -->
+                <StackPanel Margin="40,40,40,60">
+                    <TextBlock Text="EduPlus" FontSize="32" FontWeight="Bold" 
+                               FontFamily="{StaticResource MontserratFont}"
+                               Foreground="White"/>
+                    <TextBlock Text="Smart e-learning platform" FontSize="12" 
+                               Foreground="#B8D3D2" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- Menu Items -->
+                <StackPanel>
+                    <!-- Dashboard -->
+                    <Border Background="#2A5550" Padding="40,18" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="⊞" FontSize="18" Foreground="White" Margin="0,0,15,0"/>
+                            <TextBlock Text="Dashboard" FontSize="16" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Site home -->
+                    <Border Padding="40,18" Cursor="Hand" MouseLeftButtonDown="NavigateToHome">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="⌂" FontSize="18" Foreground="White" Margin="0,0,15,0"/>
+                            <TextBlock Text="Site home" FontSize="16" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- My Courses -->
+                    <Border Padding="40,18" Cursor="Hand" MouseLeftButtonDown="NavigateToMyCourses">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="🎓" FontSize="18" Foreground="White" Margin="0,0,15,0"/>
+                            <TextBlock Text="My Courses" FontSize="16" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Grid.Column="1" Background="{StaticResource LightBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- TOP BAR -->
+            <Border Grid.Row="0" Background="White" Padding="40,25" BorderBrush="#D0D0D0" BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock Text="Dashboard" FontSize="32" FontWeight="Bold" 
+                               FontFamily="{StaticResource MontserratFont}"
+                               VerticalAlignment="Center"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <!-- Bell Icon -->
+                        <Border Width="40" Height="40" Background="Transparent" Margin="0,0,20,0" Cursor="Hand">
+                            <TextBlock Text="🔔" FontSize="22" Foreground="#FF4444" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- User Profile -->
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="40" Height="40" Fill="#333333" Margin="0,0,12,0"/>
+                            <TextBlock Text="Fajar Rizky" FontSize="16" FontWeight="SemiBold" 
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- CONTENT AREA -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <Grid Margin="40,30,40,40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- LEFT SECTION -->
+                    <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                        <!-- Top Stats Cards -->
+                        <UniformGrid Columns="3" Rows="1">
+                            <!-- Card 1: My Learning Progress -->
+                            <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,15,0">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                    <TextBlock Text="⏱" FontSize="24" Foreground="#FF6B6B" Margin="0,0,0,10"/>
+                                    <TextBlock Text="My Learning Progress" FontSize="12" Foreground="#666666" Margin="0,0,0,8"/>
+                                    <TextBlock Text="87%" FontSize="28" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Card 2: My Unfinished Assignment -->
+                            <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,15,0">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                    <TextBlock Text="⏱" FontSize="24" Foreground="#FF6B6B" Margin="0,0,0,10"/>
+                                    <TextBlock Text="My Unfinished Assignment" FontSize="12" Foreground="#666666" Margin="0,0,0,8"/>
+                                    <TextBlock Text="1" FontSize="28" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Card 3: My Unfinished Quiz -->
+                            <Border Background="White" CornerRadius="10" Padding="20">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                    <TextBlock Text="⏱" FontSize="24" Foreground="#FF6B6B" Margin="0,0,0,10"/>
+                                    <TextBlock Text="My Unfinished Quiz" FontSize="12" Foreground="#666666" Margin="0,0,0,8"/>
+                                    <TextBlock Text="0" FontSize="28" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </UniformGrid>
+
+                        <!-- Calendar Box -->
+                        <Border Background="White" CornerRadius="10" Margin="0,20,0,0" Height="520">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                            </Border.Effect>
+
+                            <!-- Placeholder untuk Calendar Image -->
+                            <Image Source="pack://application:,,,/image/Calendar.png" 
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- RIGHT SECTION - Current Task Cards -->
+                    <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                        <!-- Task Card 1 -->
+                        <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15" Height="150">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                            </Border.Effect>
+                            <StackPanel>
+                                <TextBlock Text="Current Task" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                                <TextBlock Text="Your current task" FontSize="12" Foreground="#999999"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Task Card 2 -->
+                        <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15" Height="150">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                            </Border.Effect>
+                            <StackPanel>
+                                <TextBlock Text="Upcoming Task" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                                <TextBlock Text="Your upcoming task" FontSize="12" Foreground="#999999"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Task Card 3 -->
+                        <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15" Height="150">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#000000"/>
+                            </Border.Effect>
+                            <StackPanel>
+                                <TextBlock Text="Active Forum" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                                <TextBlock Text="Your active Forum" FontSize="12" Foreground="#999999"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

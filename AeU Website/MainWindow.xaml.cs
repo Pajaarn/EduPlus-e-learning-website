@@ -13,16 +13,15 @@ namespace EduPlus
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         // Event handler untuk Get Started button (optional)
-        private void GetStartedButton_Click(object sender, RoutedEventArgs e)
+        private void GetStarted_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to EduPlus! Let's get started with your learning journey.",
-                "Get Started",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            DashboardPage dashboard = new DashboardPage();
+            dashboard.Show();
+            this.Close();
         }
 
         // Event handler untuk navigation menu items (optional)
@@ -33,7 +32,9 @@ namespace EduPlus
 
         private void NavigateToDashboard(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Navigating to Dashboard...", "Navigation", MessageBoxButton.OK);
+            DashboardPage dashboard = new DashboardPage();
+            dashboard.Show();
+            this.Close();
         }
 
         private void NavigateToAnnouncements(object sender, MouseButtonEventArgs e)
@@ -45,6 +46,18 @@ namespace EduPlus
         private void LoginRegister_Click(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Opening Login/Register page...", "Login/Register", MessageBoxButton.OK);
+        }
+
+        private void NavigateToDashboardPage()
+        {
+            // Buat instance DashboardPage baru
+            DashboardPage dashboardPage = new DashboardPage();
+
+            // Show dashboard
+            dashboardPage.Show();
+
+            // Close current MainWindow
+            this.Close();
         }
 
         // Event handler untuk course card click (optional)

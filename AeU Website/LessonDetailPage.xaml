@@ -1,0 +1,409 @@
+﻿<Window x:Class="EduPlus.LessonDetailPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lesson Detail - EduPlus" Height="900" Width="1400"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        FontFamily="pack://application:,,,/Fonts/#Poppins">
+
+    <Window.Resources>
+        <FontFamily x:Key="PoppinsFont">pack://application:,,,/Fonts/#Poppins</FontFamily>
+        <FontFamily x:Key="MontserratFont">pack://application:,,,/Fonts/#Montserrat</FontFamily>
+
+        <SolidColorBrush x:Key="PrimaryColor" Color="#32625A"/>
+        <SolidColorBrush x:Key="DarkColor" Color="#1E484A"/>
+        <SolidColorBrush x:Key="LightBackground" Color="#F5F5F5"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#6B7FD7"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR -->
+        <Border Grid.Column="0" Background="{StaticResource PrimaryColor}">
+            <StackPanel>
+                <!-- Logo -->
+                <StackPanel Margin="40,40,40,60">
+                    <TextBlock Text="EduPlus" FontSize="28" FontWeight="Bold" 
+                               FontFamily="{StaticResource MontserratFont}"
+                               Foreground="White"/>
+                    <TextBlock Text="Smart e-learning platform" FontSize="11" 
+                               Foreground="#B8D3D2" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- Menu Items -->
+                <StackPanel>
+                    <!-- Dashboard -->
+                    <Border Padding="30,16" Cursor="Hand" MouseLeftButtonDown="NavigateToDashboard">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="⊞" FontSize="16" Foreground="White" Margin="0,0,12,0"/>
+                            <TextBlock Text="Dashboard" FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Site home -->
+                    <Border Padding="30,16" Cursor="Hand" MouseLeftButtonDown="NavigateToHome">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="⌂" FontSize="16" Foreground="White" Margin="0,0,12,0"/>
+                            <TextBlock Text="Site home" FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- My Courses - Active -->
+                    <Border Background="#2A5550" Padding="30,16" Cursor="Hand" MouseLeftButtonDown="NavigateToMyCourses">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="🎓" FontSize="16" Foreground="White" Margin="0,0,12,0"/>
+                            <TextBlock Text="My Courses" FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Grid.Column="1" Background="{StaticResource LightBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- TOP BAR -->
+            <Border Grid.Row="0" Background="White" Padding="40,25" BorderBrush="#D0D0D0" BorderThickness="0,0,0,1">
+                <Grid>
+                    <!-- Back Button & Title -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Border Width="35" Height="35" Background="Transparent" Cursor="Hand" 
+                                Margin="0,0,15,0" MouseLeftButtonDown="BackToCourse">
+                            <TextBlock Text="←" FontSize="24" Foreground="#333333" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Lesson Detail" FontSize="32" FontWeight="Bold" 
+                                   FontFamily="{StaticResource MontserratFont}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- End Lesson Button -->
+                    <Button Content="End Lesson" Background="#EF4444" Foreground="White" 
+                            BorderThickness="0" Padding="25,10" FontSize="14" 
+                            FontWeight="Bold" Cursor="Hand" 
+                            HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Click="EndLessonButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                    Padding="{TemplateBinding Padding}" 
+                                                    CornerRadius="8">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#DC2626"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- CONTENT AREA -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="40,30,40,40">
+
+                    <!-- Video Player Card -->
+                    <Border Background="#000000" CornerRadius="12" Height="500" Margin="0,0,0,30">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.12" Color="#000000"/>
+                        </Border.Effect>
+
+                        <Grid>
+                            <!-- Video Placeholder -->
+                            <TextBlock Text="▶" FontSize="80" Foreground="#CCCCCC" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <!-- Video Controls -->
+                            <Grid VerticalAlignment="Bottom" Background="#1A1A1A" Height="60">
+                                <StackPanel Orientation="Horizontal" Margin="20,0">
+                                    <!-- Play Button -->
+                                    <Button Content="▶" Background="Transparent" Foreground="White" 
+                                            BorderThickness="0" FontSize="20" Cursor="Hand" 
+                                            Margin="0,0,20,0" Padding="10"/>
+
+                                    <!-- Time -->
+                                    <TextBlock Text="12:35 / 45:20" FontSize="14" Foreground="White" 
+                                               VerticalAlignment="Center" Margin="0,0,20,0"/>
+
+                                    <!-- Volume -->
+                                    <Button Content="🔊" Background="Transparent" Foreground="White" 
+                                            BorderThickness="0" FontSize="18" Cursor="Hand" 
+                                            Margin="0,0,20,0" Padding="10"/>
+
+                                    <!-- Settings -->
+                                    <Button Content="⚙" Background="Transparent" Foreground="White" 
+                                            BorderThickness="0" FontSize="18" Cursor="Hand" 
+                                            Margin="0,0,20,0" Padding="10"/>
+
+                                    <!-- Fullscreen -->
+                                    <Button Content="⛶" Background="Transparent" Foreground="White" 
+                                            BorderThickness="0" FontSize="18" Cursor="Hand" 
+                                            HorizontalAlignment="Right" Padding="10"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- Tabs Section -->
+                    <Border Background="White" CornerRadius="12" Padding="40">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.12" Color="#000000"/>
+                        </Border.Effect>
+
+                        <StackPanel>
+                            <!-- Tab Headers -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
+                                <Button x:Name="OverviewTab" Content="Overview" 
+                                        Background="{StaticResource AccentBlue}" Foreground="White"
+                                        BorderThickness="0" Padding="30,12" FontSize="15" 
+                                        FontWeight="SemiBold" Cursor="Hand" Margin="0,0,15,0"
+                                        Click="OverviewTab_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="8"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                                <Button x:Name="MaterialsTab" Content="Materials" 
+                                        Background="#E0E0E0" Foreground="#666666"
+                                        BorderThickness="0" Padding="30,12" FontSize="15" 
+                                        FontWeight="SemiBold" Cursor="Hand" Margin="0,0,15,0"
+                                        Click="MaterialsTab_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="8"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                                <Button x:Name="DiscussionTab" Content="Discussion" 
+                                        Background="#E0E0E0" Foreground="#666666"
+                                        BorderThickness="0" Padding="30,12" FontSize="15" 
+                                        FontWeight="SemiBold" Cursor="Hand"
+                                        Click="DiscussionTab_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="8"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </StackPanel>
+
+                            <!-- Tab Content -->
+                            <!-- Overview Content -->
+                            <StackPanel x:Name="OverviewContent" Visibility="Visible">
+                                <TextBlock Text="About This Lesson" FontSize="22" FontWeight="Bold" 
+                                           Margin="0,0,0,20"/>
+
+                                <TextBlock TextWrapping="Wrap" FontSize="15" LineHeight="26" 
+                                           Foreground="#4A4A4A" Margin="0,0,0,30">
+                                    This lesson is designed to help you master advanced mobile app development techniques. 
+                                    You will learn various techniques and best practices in building scalable, performant, 
+                                    and user-friendly mobile applications. The material covers state management, networking, 
+                                    database integration, and deployment strategies.
+                                </TextBlock>
+
+                                <TextBlock Text="What You Will Learn" FontSize="22" FontWeight="Bold" 
+                                           Margin="0,0,0,20"/>
+
+                                <StackPanel Margin="0,0,0,15">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                        <TextBlock Text="✓" FontSize="16" Foreground="#10B981" 
+                                                   Margin="0,0,15,0" FontWeight="Bold"/>
+                                        <TextBlock Text="Advanced state management patterns" FontSize="15" 
+                                                   TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                        <TextBlock Text="✓" FontSize="16" Foreground="#10B981" 
+                                                   Margin="0,0,15,0" FontWeight="Bold"/>
+                                        <TextBlock Text="RESTful API integration and GraphQL" FontSize="15" 
+                                                   TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                        <TextBlock Text="✓" FontSize="16" Foreground="#10B981" 
+                                                   Margin="0,0,15,0" FontWeight="Bold"/>
+                                        <TextBlock Text="Local database with SQLite and Realm" FontSize="15" 
+                                                   TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                        <TextBlock Text="✓" FontSize="16" Foreground="#10B981" 
+                                                   Margin="0,0,15,0" FontWeight="Bold"/>
+                                        <TextBlock Text="Testing and debugging strategies" FontSize="15" 
+                                                   TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="✓" FontSize="16" Foreground="#10B981" 
+                                                   Margin="0,0,15,0" FontWeight="Bold"/>
+                                        <TextBlock Text="Deployment to App Store and Play Store" FontSize="15" 
+                                                   TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Materials Content -->
+                            <StackPanel x:Name="MaterialsContent" Visibility="Collapsed">
+                                <TextBlock Text="Lesson Materials" FontSize="22" FontWeight="Bold" 
+                                           Margin="0,0,0,20"/>
+
+                                <!-- Material Item 1 -->
+                                <Border Background="#F5F5F5" CornerRadius="8" Padding="20" Margin="0,0,0,15">
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="📄" FontSize="24" Margin="0,0,15,0"/>
+                                            <StackPanel>
+                                                <TextBlock Text="Slide Presentation - State Management" 
+                                                           FontSize="16" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                                <TextBlock Text="PDF • 2.5 MB" FontSize="13" Foreground="#666666"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <Button Content="Download" Background="{StaticResource PrimaryColor}" 
+                                                Foreground="White" BorderThickness="0" Padding="20,8" 
+                                                FontSize="13" Cursor="Hand" HorizontalAlignment="Right">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="6"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Material Item 2 -->
+                                <Border Background="#F5F5F5" CornerRadius="8" Padding="20" Margin="0,0,0,15">
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="📁" FontSize="24" Margin="0,0,15,0"/>
+                                            <StackPanel>
+                                                <TextBlock Text="Source Code - Flutter Example" 
+                                                           FontSize="16" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                                <TextBlock Text="ZIP • 8.3 MB" FontSize="13" Foreground="#666666"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <Button Content="Download" Background="{StaticResource PrimaryColor}" 
+                                                Foreground="White" BorderThickness="0" Padding="20,8" 
+                                                FontSize="13" Cursor="Hand" HorizontalAlignment="Right">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="6"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Material Item 3 -->
+                                <Border Background="#F5F5F5" CornerRadius="8" Padding="20">
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="📝" FontSize="24" Margin="0,0,15,0"/>
+                                            <StackPanel>
+                                                <TextBlock Text="Assignment - Build State Management App" 
+                                                           FontSize="16" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                                <TextBlock Text="DOCX • 156 KB" FontSize="13" Foreground="#666666"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <Button Content="Download" Background="{StaticResource PrimaryColor}" 
+                                                Foreground="White" BorderThickness="0" Padding="20,8" 
+                                                FontSize="13" Cursor="Hand" HorizontalAlignment="Right">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="6"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Discussion Content -->
+                            <StackPanel x:Name="DiscussionContent" Visibility="Collapsed">
+                                <TextBlock Text="Lesson Discussion" FontSize="22" FontWeight="Bold" 
+                                           Margin="0,0,0,20"/>
+
+                                <TextBlock Text="Ask questions or share your thoughts about this lesson" 
+                                           FontSize="14" Foreground="#666666" Margin="0,0,0,20"/>
+
+                                <!-- Comment Input -->
+                                <Border Background="#F5F5F5" CornerRadius="8" Padding="15" Margin="0,0,0,20">
+                                    <TextBox BorderThickness="0" Background="Transparent" 
+                                             TextWrapping="Wrap" Height="100" 
+                                             FontSize="14" VerticalAlignment="Top"
+                                             Text="Write your comment here..."/>
+                                </Border>
+
+                                <Button Content="Post Comment" Background="{StaticResource AccentBlue}" 
+                                        Foreground="White" BorderThickness="0" Padding="25,12" 
+                                        FontSize="14" FontWeight="SemiBold" Cursor="Hand" 
+                                        HorizontalAlignment="Left" Margin="0,0,0,30">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="8"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                                <!-- Sample Comments -->
+                                <TextBlock Text="Recent Comments" FontSize="18" FontWeight="Bold" 
+                                           Margin="0,0,0,15"/>
+
+                                <!-- Comment 1 -->
+                                <Border Background="White" BorderBrush="#E0E0E0" BorderThickness="1" 
+                                        CornerRadius="8" Padding="20" Margin="0,0,0,15">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                            <Ellipse Width="35" Height="35" Fill="#6B7FD7" Margin="0,0,12,0"/>
+                                            <StackPanel>
+                                                <TextBlock Text="Ahmad Rizki" FontSize="14" FontWeight="SemiBold"/>
+                                                <TextBlock Text="2 hours ago" FontSize="12" Foreground="#999999"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <TextBlock Text="Great lesson! The explanation about state management is very clear. Can you provide more examples about Provider pattern?" 
+                                                   FontSize="14" TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Comment 2 -->
+                                <Border Background="White" BorderBrush="#E0E0E0" BorderThickness="1" 
+                                        CornerRadius="8" Padding="20">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                            <Ellipse Width="35" Height="35" Fill="#10B981" Margin="0,0,12,0"/>
+                                            <StackPanel>
+                                                <TextBlock Text="Sarah Johnson" FontSize="14" FontWeight="SemiBold"/>
+                                                <TextBlock Text="5 hours ago" FontSize="12" Foreground="#999999"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <TextBlock Text="Thank you for this comprehensive tutorial. Looking forward to the next chapter!" 
+                                                   FontSize="14" TextWrapping="Wrap" Foreground="#4A4A4A"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

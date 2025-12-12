@@ -10,6 +10,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="image\Announcement\ExamRoom.png" />
+    <None Remove="image\Announcement\Guideline.png" />
+    <None Remove="image\Announcement\IntakeClass.png" />
+    <None Remove="image\Announcement\OfficialTelegram.png" />
+    <None Remove="image\Announcement\SifeSimulation.png" />
+    <None Remove="image\Calendar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\Announcement\ExamRoom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Announcement\Guideline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Announcement\IntakeClass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Announcement\OfficialTelegram.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Announcement\SifeSimulation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\Calendar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image\Frame 5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

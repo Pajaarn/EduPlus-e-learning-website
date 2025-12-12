@@ -17,3 +17,18 @@ C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\r
 C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\AeU Website.pdb
 C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\AeU Website.genruntimeconfig.cache
 C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\ref\AeU Website.dll
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\AeU Website.sourcelink.json
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\DashboardPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\DashboardPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\MyCoursesPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\MyCoursesPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\CourseDetailPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\CourseDetailPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\SubmitAssignmentPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\SubmitAssignmentPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\QuizPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\QuizPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\LoginPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\LoginPage.g.cs
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\LessonDetailPage.baml
+C:\Users\Pajaar\source\repos\AeU Website\AeU Website\obj\Debug\net10.0-windows\LessonDetailPage.g.cs
