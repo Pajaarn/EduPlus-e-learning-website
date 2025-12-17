@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AeU Website")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31f517a30b6fd915a4f0c150c75379c7d39b2f4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bb85648336d21968e56d6f3e064453e9a5f31e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("AeU Website")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AeU Website")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

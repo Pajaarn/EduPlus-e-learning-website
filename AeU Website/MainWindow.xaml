@@ -1,7 +1,7 @@
 ﻿<Window x:Class="EduPlus.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EduPlus" Height="803" Width="1400"
+        Title="EduPlus" Height="785" Width="1400"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         FontFamily="pack://application:,,,/Fonts/#Poppins">

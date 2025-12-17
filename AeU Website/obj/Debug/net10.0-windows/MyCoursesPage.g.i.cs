@@ -52,7 +52,7 @@ namespace EduPlus {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AeU Website;V1.0.0.0;component/mycoursespage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AeU Website;component/mycoursespage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\MyCoursesPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
